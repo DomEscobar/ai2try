@@ -13,9 +13,9 @@ export const Header: React.FC = () => {
             </h1>
           </div>
           <nav className="flex items-center gap-6">
-            <a href="#" className="text-sm hover:text-purple-400 transition-colors">Submit AI</a>
+            <a href="https://github.com/DomEscobar/ai2try" className="text-sm hover:text-purple-400 transition-colors">Submit AI</a>
             <a
-              href="https://github.com/ai2try/ai2try"
+              href="https://github.com/DomEscobar/ai2try"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm hover:text-purple-400 transition-colors flex items-center gap-2"
