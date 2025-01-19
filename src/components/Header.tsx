@@ -7,10 +7,7 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Brain className="w-8 h-8 text-purple-400" />
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-              AI2Try
-            </h1>
+           <img src='logo.png' className='h-8' />
           </div>
           <nav className="flex items-center gap-6">
             <a href="https://github.com/DomEscobar/ai2try" className="text-sm hover:text-purple-400 transition-colors">Submit AI</a>
