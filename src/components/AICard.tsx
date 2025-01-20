@@ -70,7 +70,7 @@ export const AICard: React.FC<AICardProps> = ({ app }) => {
               Try it out
             </button>
             <a
-              href={app.url.replace('/embed', '')}
+              href={app.creatorUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-purple-500 rounded-lg transition-colors"

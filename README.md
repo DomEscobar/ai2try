@@ -8,14 +8,12 @@ We welcome contributions from the AI developer community! To submit your AI appl
 
 ### Embedding Requirement
 
-Your AI application must be embeddable via an frame e . Optionally, you can include a `userId` parameter for rate limiting:
+Your AI application must be embeddable via an frame:
 
 ```html
+// Your website to tryout will be called via Iframe of ai2try.com
 <iframe
-  src="https://your-app.com/embed?userId=user123"
-  width="100%"
-  height="600"
-  allow="camera; microphone; clipboard-write"
+  src="https://your-app.com/embed"
 ></iframe>
 ```
 
@@ -31,7 +29,8 @@ Your AI application must be embeddable via an frame e . Optionally, you can incl
   url: 'https://your-app-domain.com/embed',
   description: 'A clear, concise description of what your AI app does.',
   tags: ['relevant', 'tags'],
-  imageUrl: 'https://url-to-preview-image.jpg'
+  imageUrl: 'https://url-to-preview-image.jpg',
+  creatorUrl: 'https://your-app-domain.com/'
 }
 ```
 

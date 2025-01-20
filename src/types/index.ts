@@ -5,4 +5,5 @@ export interface AIApp {
   description: string;
   tags?: string[];
   imageUrl: string;
+  creatorUrl:string;
 }

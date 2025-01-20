@@ -8,6 +8,7 @@ export const aiApps: AIApp[] = [
     description: 'Generate beautiful website sections with ease. Perfect for developers looking to quickly create professional UI components and layouts.',
     tags: ['Development', 'UI', 'Code'],
     imageUrl: 'uigen.png',
+    creatorUrl:'https://github.com/domEscobar/'
   },
   {
     id: 'dood-generator',
@@ -16,5 +17,6 @@ export const aiApps: AIApp[] = [
     description: 'Create hilarious AI-powered trading cards with your own custom characters. Generate unique, fun collectible cards with just a few clicks!',
     tags: ['Image', 'Fun'],
     imageUrl: 'tcggen.png',
+    creatorUrl:'https://github.com/domEscobar/'
   }
 ];
