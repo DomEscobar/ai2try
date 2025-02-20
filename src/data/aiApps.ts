@@ -1,6 +1,15 @@
 import { AIApp } from '../types';
 
 export const aiApps: AIApp[] = [
+    {
+    id: 'img-generator',
+    title: 'Image Generator',
+    url: 'https://v0-imagegenerator-pi.vercel.app',
+    description: 'Generate simply images with the power of AI.',
+    tags: ['Image', 'UI'],
+    imageUrl: 'imggen.png',
+    creatorUrl:'https://github.com/domEscobar/'
+  },
   {
     id: 'ui-generator',
     title: 'UI Generator',
