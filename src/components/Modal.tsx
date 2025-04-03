@@ -33,7 +33,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={onClose}
       />
-      <div className="relative w-full max-w-5xl h-[85vh] w-[85vh] bg-gray-900 rounded-lg shadow-xl overflow-hidden">
+      <div className="relative w-full h-full bg-gray-900 overflow-hidden">
         <div className="flex items-center justify-between p-4 border-b border-gray-800">
           <h3 className="text-lg font-semibold">{title}</h3>
           <button
@@ -43,7 +43,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="h-[calc(80vh-4rem)]">
+        <div className="h-[calc(100vh-4rem)]">
           {children}
         </div>
       </div>

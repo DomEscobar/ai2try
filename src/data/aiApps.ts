@@ -1,14 +1,23 @@
 import { AIApp } from '../types';
 
 export const aiApps: AIApp[] = [
-    {
+  {
     id: 'img-generator',
-    title: 'Image Generator',
+    title: 'Image Generate AI',
     url: 'https://v0-imagegenerator-pi.vercel.app',
     description: 'Generate simply images with the power of AI.',
     tags: ['Image', 'UI'],
     imageUrl: 'imggen.png',
-    creatorUrl:'https://github.com/domEscobar/'
+    creatorUrl: 'https://github.com/domEscobar/'
+  },
+  {
+    id: 'img-editor',
+    title: 'Photo Edit AI',
+    url: 'https://imgeditai.vercel.app',
+    description: 'Edit images with the power of AI.',
+    tags: ['Image', 'UI'],
+    imageUrl: 'photoedit.png',
+    creatorUrl: 'https://github.com/domEscobar/'
   },
   {
     id: 'ui-generator',
@@ -17,7 +26,7 @@ export const aiApps: AIApp[] = [
     description: 'Generate beautiful website sections with ease. Perfect for developers looking to quickly create professional UI components and layouts.',
     tags: ['Development', 'UI', 'Code'],
     imageUrl: 'uigen.png',
-    creatorUrl:'https://github.com/domEscobar/'
+    creatorUrl: 'https://github.com/domEscobar/'
   },
   {
     id: 'dood-generator',
@@ -26,6 +35,6 @@ export const aiApps: AIApp[] = [
     description: 'Create hilarious AI-powered trading cards with your own custom characters. Generate unique, fun collectible cards with just a few clicks!',
     tags: ['Image', 'Fun'],
     imageUrl: 'tcggen.png',
-    creatorUrl:'https://github.com/domEscobar/'
+    creatorUrl: 'https://github.com/domEscobar/'
   }
 ];
