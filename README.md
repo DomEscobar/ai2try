@@ -67,6 +67,7 @@ Have questions about submitting your AI application? Check out our:
 - [Contact Page](https://ai2try.com/contact)
 - [Terms of Service](https://ai2try.com/terms)
 - [Privacy Policy](https://ai2try.com/privacy)
+- 
 
 ---
 
