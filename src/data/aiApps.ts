@@ -20,6 +20,15 @@ export const aiApps: AIApp[] = [
     creatorUrl: 'https://github.com/domEscobar/'
   },
   {
+    id: 'deep-company-research-germany',
+    title: 'Deep Company Research Germany',
+    url: 'https://deep-researcher-mu.vercel.app',
+    description: 'Research company data like financials, history, and more. All in one place.',
+    tags: ['Company', 'Research'],
+    imageUrl: 'company-research.png',
+    creatorUrl: 'https://github.com/domEscobar/'
+  },
+  {
     id: 'ui-generator',
     title: 'UI Generator',
     url: 'https://ui-generator-zeta.vercel.app',
