@@ -11,6 +11,7 @@ interface AICardProps {
 export const AICard: React.FC<AICardProps> = ({ app }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [fingerprint, setFingerprint] = useState<number | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const initFingerprint = async () => {
@@ -31,77 +32,101 @@ export const AICard: React.FC<AICardProps> = ({ app }) => {
 
   return (
     <>
-      <div className="relative overflow-hidden rounded-2xl group">
-        {/* Card Background with Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/40 to-black z-0" />
+      <div 
+        className="relative backdrop-blur-sm bg-white/5 rounded-xl overflow-hidden border border-white/10 transition-all duration-300 hover:shadow-[0_0_15px_rgba(100,210,255,0.25)] hover:border-cyan-400/20 flex flex-col"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Subtle Animated Gradient Overlay */}
+        <div 
+          className="absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none" 
+          style={{ 
+            opacity: isHovered ? 0.07 : 0,
+            background: 'linear-gradient(120deg, rgba(80,214,255,1) 0%, rgba(127,107,255,1) 50%, rgba(174,68,255,1) 100%)',
+            backgroundSize: '200% 200%',
+            animation: 'gradientBG 15s ease infinite'
+          }}
+        />
         
-        {/* Glowing Border Effect */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 
-          p-[1px] opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Creator Badge with simplified look */}
+        <a
+          href={app.creatorUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute top-3 right-3 z-20 p-1.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center transition-all duration-200 hover:bg-cyan-400/10"
+          style={{ 
+            boxShadow: isHovered ? '0 0 5px rgba(100,210,255,0.3)' : 'none',
+            borderColor: isHovered ? 'rgba(100,210,255,0.3)' : 'rgba(255,255,255,0.1)',
+          }}
+        >
+          <ExternalLink className="w-3 h-3 text-cyan-300" />
+        </a>
 
-        <div className="relative z-10 flex flex-col h-full">
-          {/* Creator Badge */}
-          <a
-            href={app.creatorUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-3 right-3 z-20 flex items-center gap-1 bg-gray-900/80 backdrop-blur-md 
-              py-1 px-2 rounded-full text-xs text-gray-300 transition-all duration-200 hover:bg-purple-800/90 hover:text-white"
-          >
-            <ExternalLink className="w-3 h-3" />
-            <span className="opacity-0 max-w-0 group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-300 overflow-hidden whitespace-nowrap">
-              Creator
-            </span>
-          </a>
-
-          {/* Image Section with Frosted Glass Overlay */}
-          <div className="relative aspect-video w-full overflow-hidden">
-            <img
-              src={app.imageUrl}
-              alt={app.title}
-              className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-gray-900/90 backdrop-blur-[1px]" />
-            
-            {/* Title on Image */}
-            <div className="absolute bottom-0 left-0 w-full p-4 pb-2">
-              <h2 className="text-xl font-bold text-white drop-shadow-md">{app.title}</h2>
-            </div>
-          </div>
-
-          {/* Content Area */}
-          <div className="relative p-4 flex-grow flex flex-col">
-            {/* Description */}
-            <p className="text-gray-300 text-sm mb-3 line-clamp-2">{app.description}</p>
-            
-            {/* Tags */}
-            {app.tags && (
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {app.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-900/30 border border-purple-500/30
-                      rounded-md text-xs font-medium text-purple-200"
-                  >
-                    <Tag className="w-3 h-3" />
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-            
-            {/* Try It Out Button */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="mt-auto flex items-center justify-center gap-2 py-3 px-4 w-full
-                bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700
-                rounded-xl text-white font-medium shadow-lg shadow-purple-900/20
-                transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-purple-500/40"
+        {/* Clean Image Section */}
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={app.imageUrl}
+            alt={app.title}
+            className="w-full h-full object-cover transform transition-transform duration-500"
+            style={{
+              transform: isHovered ? 'scale(1.03)' : 'scale(1)',
+              filter: 'grayscale(0.1) brightness(0.85)'
+            }}
+          />
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+          
+          {/* Title positioned at bottom of image with subtle glow */}
+          <div className="absolute bottom-0 left-0 w-full p-4 pb-3 pointer-events-none">
+            <h2 
+              className="text-xl font-medium text-white" 
+              style={{ 
+                textShadow: isHovered ? '0 0 10px rgba(100,210,255,0.5)' : 'none',
+                color: isHovered ? 'rgba(210,240,255,1)' : 'white'
+              }}
             >
-              <Play className="w-4 h-4 fill-white" />
-              Try it out
-            </button>
+              {app.title}
+            </h2>
           </div>
+        </div>
+
+        {/* Content Area with cleaner spacing */}
+        <div className="p-4 flex flex-col flex-grow">
+          {/* Simplified description */}
+          <p className="text-sm text-gray-300 mb-4 line-clamp-2">{app.description}</p>
+          
+          {/* Minimal Tags */}
+          {app.tags && (
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {app.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-light"
+                  style={{ 
+                    background: 'rgba(100,210,255,0.08)',
+                    color: 'rgb(180,230,255)',
+                    border: '1px solid rgba(100,210,255,0.15)'
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+          
+          {/* Minimalist Try Button */}
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="mt-auto w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-sm font-medium transition-all duration-300 z-10 relative"
+            style={{
+              background: isHovered ? 'rgba(100,210,255,0.15)' : 'rgba(255,255,255,0.05)',
+              color: isHovered ? 'rgb(180,230,255)' : 'white',
+              border: isHovered ? '1px solid rgba(100,210,255,0.25)' : '1px solid rgba(255,255,255,0.1)'
+            }}
+          >
+            <Play className="w-3.5 h-3.5" />
+            Try
+          </button>
         </div>
       </div>
 

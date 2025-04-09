@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Tailwind doesn't work well with animations directly in classes, so we use CSS */
+.ai-glow {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.ai-float {
+  animation: float 5s infinite ease-in-out;
+}
+
+.ai-gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-cyan-300;
+  background-size: 200% auto;
+  animation: gradientBG 8s ease infinite;
+}
